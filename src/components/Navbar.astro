@@ -1,0 +1,124 @@
+---
+---
+
+<header
+  id="navbar"
+  class="fixed top-0 left-0 right-0 z-50 transition-all duration-300"
+  style="background: transparent;"
+>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+    <nav class="flex items-center justify-between h-16 md:h-18">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2.5 group" aria-label="AcadêmicaIA — Início">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center"
+          style="background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+            <line x1="16" y1="13" x2="8" y2="13"/>
+            <line x1="16" y1="17" x2="8" y2="17"/>
+            <polyline points="10 9 9 9 8 9"/>
+          </svg>
+        </div>
+        <span class="font-bold text-lg tracking-tight" style="font-family:'DM Sans',sans-serif; color:var(--text-primary);">
+          Acadêmica<span style="color:var(--accent-primary);">IA</span>
+        </span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#produto" class="text-sm font-medium transition-colors hover:text-amber-400" style="color:var(--text-muted);">Produto</a>
+        <a href="#como-funciona" class="text-sm font-medium transition-colors hover:text-amber-400" style="color:var(--text-muted);">Como Funciona</a>
+        <a href="#precos" class="text-sm font-medium transition-colors hover:text-amber-400" style="color:var(--text-muted);">Preços</a>
+        <a href="#depoimentos" class="text-sm font-medium transition-colors hover:text-amber-400" style="color:var(--text-muted);">Depoimentos</a>
+      </div>
+
+      <!-- Desktop CTA -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="#precos" class="text-sm font-medium transition-colors hover:text-amber-400" style="color:var(--text-muted);">Entrar</a>
+        <a
+          href="#hero"
+          class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-semibold transition-all hover:opacity-90 hover:scale-105"
+          style="background:var(--accent-primary); color:#0A0A0F;"
+          aria-label="Começar Grátis"
+        >
+          Começar Grátis
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button
+        id="menu-btn"
+        class="md:hidden flex flex-col gap-1.5 p-2 rounded-md transition-colors"
+        style="color:var(--text-primary);"
+        aria-label="Abrir menu"
+      >
+        <span class="w-5 h-0.5 rounded-full" style="background:currentColor;"></span>
+        <span class="w-5 h-0.5 rounded-full" style="background:currentColor;"></span>
+        <span class="w-4 h-0.5 rounded-full" style="background:currentColor;"></span>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<!-- Mobile Menu Drawer -->
+<div
+  id="mobile-menu"
+  class="mobile-menu fixed inset-y-0 right-0 z-[100] w-72 flex flex-col"
+  style="background:var(--bg-surface); border-left:1px solid var(--border-color);"
+>
+  <div class="flex items-center justify-between p-6 border-b" style="border-color:var(--border-color);">
+    <span class="font-bold text-lg" style="font-family:'DM Sans',sans-serif;">
+      Acadêmica<span style="color:var(--accent-primary);">IA</span>
+    </span>
+    <button id="menu-close" class="p-1 rounded-md" style="color:var(--text-muted);" aria-label="Fechar menu">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+      </svg>
+    </button>
+  </div>
+  <nav class="flex flex-col gap-1 p-6">
+    <a href="#produto" class="px-3 py-2.5 rounded-lg text-sm font-medium transition-colors hover:bg-white/5" style="color:var(--text-muted);">Produto</a>
+    <a href="#como-funciona" class="px-3 py-2.5 rounded-lg text-sm font-medium transition-colors hover:bg-white/5" style="color:var(--text-muted);">Como Funciona</a>
+    <a href="#precos" class="px-3 py-2.5 rounded-lg text-sm font-medium transition-colors hover:bg-white/5" style="color:var(--text-muted);">Preços</a>
+    <a href="#depoimentos" class="px-3 py-2.5 rounded-lg text-sm font-medium transition-colors hover:bg-white/5" style="color:var(--text-muted);">Depoimentos</a>
+  </nav>
+  <div class="mt-auto p-6 border-t" style="border-color:var(--border-color);">
+    <a
+      href="#hero"
+      class="w-full flex items-center justify-center gap-2 px-4 py-3 rounded-lg font-semibold text-sm transition-all"
+      style="background:var(--accent-primary); color:#0A0A0F;"
+    >
+      Começar Grátis →
+    </a>
+  </div>
+</div>
+<!-- Backdrop -->
+<div id="menu-backdrop" class="fixed inset-0 z-[99] hidden" style="background:rgba(0,0,0,0.5);"
+  onclick="document.getElementById('mobile-menu')?.classList.remove('open'); this.classList.add('hidden');">
+</div>
+<script>
+  const menuBtn = document.getElementById('menu-btn');
+  const backdrop = document.getElementById('menu-backdrop');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuClose = document.getElementById('menu-close');
+
+  menuBtn?.addEventListener('click', () => {
+    mobileMenu?.classList.add('open');
+    backdrop?.classList.remove('hidden');
+  });
+  menuClose?.addEventListener('click', () => {
+    mobileMenu?.classList.remove('open');
+    backdrop?.classList.add('hidden');
+  });
+  // Close on nav link click
+  mobileMenu?.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      mobileMenu.classList.remove('open');
+      backdrop?.classList.add('hidden');
+    });
+  });
+</script>

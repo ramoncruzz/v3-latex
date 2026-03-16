@@ -1,0 +1,116 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'AcadêmicaIA — Formatação Acadêmica Automática | ABNT, APA, Vancouver, IEEE',
+  description = 'Converta seu texto em documentos acadêmicos perfeitamente formatados. Suporte a ABNT, APA, Vancouver e IEEE. Exporte como PDF ou LaTeX em segundos. Grátis para começar.',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pt-BR" class="dark">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content="formatação ABNT, TCC formatado, LaTeX automático, artigo científico, APA, Vancouver, IEEE" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="AcadêmicaIA — Formatação Acadêmica em Segundos" />
+    <meta property="og:description" content="Pare de perder horas com formatação. Cole seu texto, escolha a norma, receba o documento pronto." />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="pt_BR" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="AcadêmicaIA — Formatação Acadêmica em Segundos" />
+    <meta name="twitter:description" content="Pare de perder horas com formatação. Cole seu texto, escolha a norma, receba o documento pronto." />
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://academicaia.com.br" />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Preconnect Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  </head>
+  <body>
+    <slot />
+    <script>
+      // Intersection Observer for scroll reveal
+      const observer = new IntersectionObserver(
+        (entries) => entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            observer.unobserve(e.target);
+          }
+        }),
+        { threshold: 0.12 }
+      );
+      document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => observer.observe(el));
+
+      // Navbar scroll behavior
+      const navbar = document.getElementById('navbar');
+      if (navbar) {
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 80) {
+            navbar.classList.add('navbar-scrolled');
+          } else {
+            navbar.classList.remove('navbar-scrolled');
+          }
+        }, { passive: true });
+      }
+
+      // Mobile menu toggle
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const menuClose = document.getElementById('menu-close');
+
+      if (menuBtn && mobileMenu) {
+        menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+      }
+      if (menuClose && mobileMenu) {
+        menuClose.addEventListener('click', () => mobileMenu.classList.remove('open'));
+      }
+
+      // Count-up animation
+      function countUp(el: HTMLElement, target: number, suffix: string = '') {
+        const duration = 2000;
+        const start = performance.now();
+        const update = (now: number) => {
+          const elapsed = now - start;
+          const progress = Math.min(elapsed / duration, 1);
+          const eased = 1 - Math.pow(1 - progress, 3);
+          el.textContent = Math.floor(eased * target).toLocaleString('pt-BR') + suffix;
+          if (progress < 1) requestAnimationFrame(update);
+        };
+        requestAnimationFrame(update);
+      }
+
+      const countObserver = new IntersectionObserver(
+        (entries) => entries.forEach(e => {
+          if (e.isIntersecting) {
+            const el = e.target as HTMLElement;
+            const target = parseInt(el.dataset.target || '0');
+            const suffix = el.dataset.suffix || '';
+            countUp(el, target, suffix);
+            countObserver.unobserve(el);
+          }
+        }),
+        { threshold: 0.5 }
+      );
+      document.querySelectorAll('.count-up').forEach(el => countObserver.observe(el));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,207 @@
+---
+---
+
+<section
+  id="personas"
+  class="relative py-24 lg:py-32"
+  style="background:var(--bg-surface);"
+>
+  <div class="max-w-5xl mx-auto px-6 lg:px-8">
+
+    <!-- Section header -->
+    <div class="text-center mb-16 reveal">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-4 px-3 py-1.5 rounded-full border"
+        style="border-color:rgba(245,158,11,0.3); color:var(--accent-primary); background:rgba(245,158,11,0.06);">
+        Para Quem É
+      </span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4" style="font-family:'Playfair Display',serif; color:var(--text-primary);">
+        Feito para quem produz<br />conhecimento de verdade
+      </h2>
+    </div>
+
+    <!-- Tabs (client-side) -->
+    <div class="reveal" id="persona-tabs">
+      <!-- Tab buttons -->
+      <div class="flex gap-2 mb-8 p-1.5 rounded-xl w-fit mx-auto" style="background:var(--bg-elevated); border:1px solid var(--border-color);">
+        <button
+          class="persona-tab-btn active px-5 py-2.5 rounded-lg text-sm font-semibold transition-all"
+          data-tab="universitario"
+          style="background:var(--accent-primary); color:#0A0A0F;"
+        >
+          Para Universitários
+        </button>
+        <button
+          class="persona-tab-btn px-5 py-2.5 rounded-lg text-sm font-semibold transition-all"
+          data-tab="pesquisador"
+          style="background:transparent; color:var(--text-muted);"
+        >
+          Para Pesquisadores
+        </button>
+      </div>
+
+      <!-- Tab: Universitários -->
+      <div class="persona-tab-content" id="tab-universitario">
+        <div class="rounded-2xl border p-8 md:p-10"
+          style="background:var(--bg-elevated); border-color:var(--border-color);">
+          <div class="grid md:grid-cols-[auto_1fr] gap-8 items-start">
+            <!-- Avatar -->
+            <div class="flex flex-col items-center gap-3">
+              <div class="w-20 h-20 rounded-2xl flex items-center justify-center text-3xl font-bold"
+                style="background:linear-gradient(135deg,rgba(245,158,11,0.2),rgba(245,158,11,0.05)); border:1px solid rgba(245,158,11,0.3); color:var(--accent-primary); font-family:'Playfair Display',serif;">
+                J
+              </div>
+              <div class="text-center">
+                <p class="font-semibold text-sm" style="color:var(--text-primary);">João</p>
+                <p class="text-xs" style="color:var(--text-muted);">21 anos · UFPR</p>
+                <p class="text-xs" style="color:var(--text-subtle);">Administração</p>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="space-y-6">
+              <!-- Quote -->
+              <blockquote class="relative">
+                <svg class="absolute -top-2 -left-1 opacity-30" width="32" height="32" viewBox="0 0 24 24" fill="var(--accent-primary)">
+                  <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                  <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                </svg>
+                <p class="text-base italic leading-relaxed pl-6"
+                  style="color:var(--text-primary); font-family:'Playfair Display',serif;">
+                  "Estava quase entregando meu TCC sem formatação correta. Em 10 minutos o AcadêmicaIA resolveu o que eu não consegui em 3 dias."
+                </p>
+              </blockquote>
+
+              <!-- Dores vs Solução -->
+              <div class="grid sm:grid-cols-2 gap-4">
+                <!-- Dores -->
+                <div class="rounded-xl p-4 border" style="background:rgba(239,68,68,0.04); border-color:rgba(239,68,68,0.15);">
+                  <p class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:#EF4444;">Antes</p>
+                  <ul class="space-y-2">
+                    {['Não sabia as regras ABNT', 'Horas perdidas no Word', 'Múltiplas correções do orientador'].map(d => (
+                      <li class="flex items-start gap-2 text-sm" style="color:var(--text-muted);">
+                        <span class="mt-0.5 flex-shrink-0" style="color:#EF4444;">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                          </svg>
+                        </span>
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <!-- Solução -->
+                <div class="rounded-xl p-4 border" style="background:rgba(34,197,94,0.04); border-color:rgba(34,197,94,0.15);">
+                  <p class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:#22C55E;">Depois</p>
+                  <ul class="space-y-2">
+                    {['TCC em ABNT gerado automaticamente', 'Menos de 5 minutos de processo', 'Aprovado na primeira revisão'].map(s => (
+                      <li class="flex items-start gap-2 text-sm" style="color:var(--text-muted);">
+                        <span class="mt-0.5 flex-shrink-0" style="color:#22C55E;">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"/>
+                          </svg>
+                        </span>
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tab: Pesquisadores -->
+      <div class="persona-tab-content hidden" id="tab-pesquisador">
+        <div class="rounded-2xl border p-8 md:p-10"
+          style="background:var(--bg-elevated); border-color:var(--border-color);">
+          <div class="grid md:grid-cols-[auto_1fr] gap-8 items-start">
+            <!-- Avatar -->
+            <div class="flex flex-col items-center gap-3">
+              <div class="w-20 h-20 rounded-2xl flex items-center justify-center text-3xl font-bold"
+                style="background:linear-gradient(135deg,rgba(139,92,246,0.2),rgba(139,92,246,0.05)); border:1px solid rgba(139,92,246,0.3); color:var(--accent-secondary); font-family:'Playfair Display',serif;">
+                A
+              </div>
+              <div class="text-center">
+                <p class="font-semibold text-sm" style="color:var(--text-primary);">Ana</p>
+                <p class="text-xs" style="color:var(--text-muted);">26 anos · USP</p>
+                <p class="text-xs" style="color:var(--text-subtle);">Mestranda · Biologia</p>
+              </div>
+            </div>
+
+            <!-- Content -->
+            <div class="space-y-6">
+              <!-- Quote -->
+              <blockquote class="relative">
+                <svg class="absolute -top-2 -left-1 opacity-30" width="32" height="32" viewBox="0 0 24 24" fill="var(--accent-secondary)">
+                  <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                  <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 4v3c0 1 0 1 1 1z"/>
+                </svg>
+                <p class="text-base italic leading-relaxed pl-6"
+                  style="color:var(--text-primary); font-family:'Playfair Display',serif;">
+                  "Submeto papers para revistas diferentes. Agora troco o template em segundos e foco no que importa: a pesquisa."
+                </p>
+              </blockquote>
+
+              <!-- Dores vs Solução -->
+              <div class="grid sm:grid-cols-2 gap-4">
+                <div class="rounded-xl p-4 border" style="background:rgba(239,68,68,0.04); border-color:rgba(239,68,68,0.15);">
+                  <p class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:#EF4444;">Antes</p>
+                  <ul class="space-y-2">
+                    {['Formatos diferentes por revista', 'LaTeX com curva de aprendizado alta', 'Tempo perdido em detalhes técnicos'].map(d => (
+                      <li class="flex items-start gap-2 text-sm" style="color:var(--text-muted);">
+                        <span class="mt-0.5 flex-shrink-0" style="color:#EF4444;">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+                          </svg>
+                        </span>
+                        {d}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div class="rounded-xl p-4 border" style="background:rgba(34,197,94,0.04); border-color:rgba(34,197,94,0.15);">
+                  <p class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:#22C55E;">Depois</p>
+                  <ul class="space-y-2">
+                    {['Templates por revista', 'Exportação LaTeX profissional', 'Submissão direta e rápida'].map(s => (
+                      <li class="flex items-start gap-2 text-sm" style="color:var(--text-muted);">
+                        <span class="mt-0.5 flex-shrink-0" style="color:#22C55E;">
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <polyline points="20 6 9 17 4 12"/>
+                          </svg>
+                        </span>
+                        {s}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  const tabBtns = document.querySelectorAll('.persona-tab-btn');
+  const tabContents = document.querySelectorAll('.persona-tab-content');
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const target = (btn as HTMLElement).dataset.tab;
+
+      tabBtns.forEach(b => {
+        (b as HTMLElement).style.background = 'transparent';
+        (b as HTMLElement).style.color = 'var(--text-muted)';
+      });
+      tabContents.forEach(c => c.classList.add('hidden'));
+
+      (btn as HTMLElement).style.background = 'var(--accent-primary)';
+      (btn as HTMLElement).style.color = '#0A0A0F';
+      document.getElementById(`tab-${target}`)?.classList.remove('hidden');
+    });
+  });
+</script>

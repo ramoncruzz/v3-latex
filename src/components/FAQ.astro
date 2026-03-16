@@ -1,0 +1,111 @@
+---
+const faqs = [
+  {
+    q: 'Preciso saber LaTeX para usar a plataforma?',
+    a: 'Não. Você apenas cola seu texto em linguagem natural. O sistema gera o LaTeX internamente e entrega o PDF final pronto. Você nunca precisa ver uma linha de código LaTeX se não quiser.',
+  },
+  {
+    q: 'Qual a diferença entre ABNT, APA, Vancouver e IEEE?',
+    a: 'São normas de diferentes instituições. ABNT é obrigatória no Brasil para trabalhos acadêmicos; APA é padrão em ciências humanas e sociais; Vancouver é usada em medicina e ciências da saúde; IEEE rege engenharia e computação. O AcadêmicaIA conhece as regras completas de todas.',
+  },
+  {
+    q: 'O documento gerado pode ser editado depois?',
+    a: 'Sim. Você recebe o arquivo .tex editável se quiser fazer ajustes manuais no LaTeX, além do PDF final pronto para entrega. No plano Gratuito, apenas PDF. Nos planos pagos, ambos.',
+  },
+  {
+    q: 'Funciona para trabalhos longos como dissertações e teses?',
+    a: 'Sim. A plataforma não impõe limite de páginas. Dissertações e teses completas — incluindo sumário, listas, apêndices e referências — são processadas normalmente com todas as normas aplicadas.',
+  },
+  {
+    q: 'Meus textos ficam armazenados na plataforma?',
+    a: 'No plano Estudante e acima você tem histórico completo dos documentos formatados. No plano Gratuito, os documentos ficam disponíveis por 7 dias. Todos os dados são armazenados com criptografia e em conformidade com a LGPD.',
+  },
+];
+---
+
+<section
+  id="faq"
+  class="relative py-24 lg:py-32"
+  style="background:var(--bg-surface);"
+>
+  <div class="max-w-3xl mx-auto px-6 lg:px-8">
+
+    <!-- Section header -->
+    <div class="text-center mb-16 reveal">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-4 px-3 py-1.5 rounded-full border"
+        style="border-color:rgba(139,92,246,0.3); color:var(--accent-secondary); background:rgba(139,92,246,0.06);">
+        FAQ
+      </span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4" style="font-family:'Playfair Display',serif; color:var(--text-primary);">
+        Perguntas frequentes
+      </h2>
+    </div>
+
+    <!-- Accordion -->
+    <div class="space-y-3 reveal">
+      {faqs.map((faq, i) => (
+        <div
+          class="faq-item rounded-xl border overflow-hidden transition-all"
+          style="border-color:var(--border-color); background:var(--bg-elevated);"
+        >
+          <button
+            class="faq-trigger w-full flex items-center justify-between px-6 py-4 text-left gap-4 transition-colors hover:bg-white/[0.02]"
+            aria-expanded="false"
+          >
+            <span class="font-medium text-sm md:text-base" style="color:var(--text-primary); font-family:'DM Sans',sans-serif;">
+              {faq.q}
+            </span>
+            <span class="flex-shrink-0 w-6 h-6 rounded-full flex items-center justify-center faq-icon transition-transform"
+              style="background:rgba(245,158,11,0.1); color:var(--accent-primary);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <polyline points="6 9 12 15 18 9"/>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-content hidden px-6 pb-5">
+            <p class="text-sm leading-relaxed" style="color:var(--text-muted);">{faq.a}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Still have questions? -->
+    <div class="mt-12 text-center reveal">
+      <p class="text-sm mb-3" style="color:var(--text-muted);">Ainda tem dúvidas?</p>
+      <a href="mailto:suporte@academicaia.com.br"
+        class="inline-flex items-center gap-2 text-sm font-medium transition-colors hover:opacity-80"
+        style="color:var(--accent-primary);">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+          <polyline points="22,6 12,13 2,6"/>
+        </svg>
+        Falar com o suporte →
+      </a>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll('.faq-trigger').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const item = btn.closest('.faq-item');
+      const content = item?.querySelector('.faq-content');
+      const icon = btn.querySelector('.faq-icon');
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+
+      // Close all
+      document.querySelectorAll('.faq-trigger').forEach(b => {
+        b.setAttribute('aria-expanded', 'false');
+        b.closest('.faq-item')?.querySelector('.faq-content')?.classList.add('hidden');
+        (b.querySelector('.faq-icon') as HTMLElement).style.transform = 'rotate(0deg)';
+      });
+
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true');
+        content?.classList.remove('hidden');
+        if (icon) (icon as HTMLElement).style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+</script>

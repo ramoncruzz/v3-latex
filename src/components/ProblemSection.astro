@@ -1,0 +1,82 @@
+---
+const problems = [
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>`,
+    title: 'Horas perdidas com formatação',
+    description: 'Estudantes perdem em média 8h ajustando margens, espaçamentos e títulos antes de entregar um TCC.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 4 23 10 17 10"/><polyline points="1 20 1 14 7 14"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>`,
+    title: 'Retrabalho constante',
+    description: 'Orientadores pedem correções de formatação repetidas vezes, gerando frustração e atraso na entrega.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 6H3"/><path d="M10 12H3"/><path d="M10 18H3"/><path d="M17 12v6"/><path d="M14 15l3-3 3 3"/></svg>`,
+    title: 'Cada norma tem suas regras',
+    description: 'ABNT, APA, Vancouver e IEEE têm centenas de detalhes diferentes impossíveis de memorizar e aplicar manualmente.',
+  },
+  {
+    icon: `<svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>`,
+    title: 'LaTeX é poderoso, mas inacessível',
+    description: 'A ferramenta certa existe, mas poucos estudantes conseguem aprender LaTeX a tempo de usá-la no TCC.',
+  },
+];
+---
+
+<section
+  id="produto"
+  class="relative py-24 lg:py-32"
+  style="background:var(--bg-surface);"
+>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <!-- Section header -->
+    <div class="text-center mb-16 reveal">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-4 px-3 py-1.5 rounded-full border"
+        style="border-color:rgba(245,158,11,0.3); color:var(--accent-primary); background:rgba(245,158,11,0.06);">
+        O Problema
+      </span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4" style="font-family:'Playfair Display',serif; color:var(--text-primary);">
+        Você reconhece esse cenário?
+      </h2>
+      <p class="text-lg max-w-xl mx-auto" style="color:var(--text-muted);">
+        Antes do AcadêmicaIA, esses eram os obstáculos que todo estudante enfrentava.
+      </p>
+    </div>
+
+    <!-- Problem cards grid -->
+    <div class="grid sm:grid-cols-2 gap-5 lg:gap-6">
+      {problems.map((p, i) => (
+        <div
+          class={`reveal reveal-delay-${i + 1} card-hover rounded-2xl p-6 border flex gap-4`}
+          style={`background:var(--bg-elevated); border-color:var(--border-color);`}
+        >
+          <!-- Icon -->
+          <div class="flex-shrink-0 w-12 h-12 rounded-xl flex items-center justify-center"
+            style="background:rgba(245,158,11,0.08); color:var(--accent-primary);">
+            <Fragment set:html={p.icon} />
+          </div>
+          <!-- Content -->
+          <div>
+            <h3 class="font-semibold text-base mb-2" style="font-family:'DM Sans',sans-serif; color:var(--text-primary); font-family:'Playfair Display',serif;">
+              {p.title}
+            </h3>
+            <p class="text-sm leading-relaxed" style="color:var(--text-muted);">
+              {p.description}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Transition hint -->
+    <div class="mt-16 text-center reveal">
+      <div class="inline-flex items-center gap-3">
+        <div class="w-16 h-px" style="background:linear-gradient(90deg,transparent,var(--border-color));"></div>
+        <span class="text-sm font-medium" style="color:var(--text-subtle);">Agora existe uma solução</span>
+        <div class="w-16 h-px" style="background:linear-gradient(90deg,var(--border-color),transparent);"></div>
+      </div>
+    </div>
+
+  </div>
+</section>

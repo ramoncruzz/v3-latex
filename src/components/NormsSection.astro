@@ -1,0 +1,123 @@
+---
+const norms = [
+  {
+    id: 'abnt',
+    name: 'ABNT',
+    full: 'Associação Brasileira de Normas Técnicas',
+    standards: 'NBR 6022, 6023, 14724',
+    usage: 'TCCs e artigos brasileiros',
+    color: '#F59E0B',
+    bg: 'rgba(245,158,11,0.06)',
+    border: 'rgba(245,158,11,0.15)',
+    hoverBorder: 'rgba(245,158,11,0.4)',
+    features: ['Formatação de referências ABNT', 'Capa e folha de rosto', 'Sumário automático', 'Normas de citação'],
+  },
+  {
+    id: 'apa',
+    name: 'APA',
+    full: 'American Psychological Association',
+    standards: '7ª Edição',
+    usage: 'Psicologia, Educação, Ciências Sociais',
+    color: '#22C55E',
+    bg: 'rgba(34,197,94,0.06)',
+    border: 'rgba(34,197,94,0.15)',
+    hoverBorder: 'rgba(34,197,94,0.4)',
+    features: ['Citações autor-data', 'Lista de referências', 'Formatação de DOI', 'Headings hierárquicos'],
+  },
+  {
+    id: 'vancouver',
+    name: 'Vancouver',
+    full: 'ICMJE Guidelines',
+    standards: 'ICMJE guidelines',
+    usage: 'Medicina e Ciências da Saúde',
+    color: '#3B82F6',
+    bg: 'rgba(59,130,246,0.06)',
+    border: 'rgba(59,130,246,0.15)',
+    hoverBorder: 'rgba(59,130,246,0.4)',
+    features: ['Citações numéricas', 'Referências MEDLINE', 'Estrutura IMRAD', 'Abreviações de revistas'],
+  },
+  {
+    id: 'ieee',
+    name: 'IEEE',
+    full: 'Institute of Electrical and Electronics Engineers',
+    standards: 'IEEE Editorial Style Manual',
+    usage: 'Engenharia, Computação, Tecnologia',
+    color: '#8B5CF6',
+    bg: 'rgba(139,92,246,0.06)',
+    border: 'rgba(139,92,246,0.15)',
+    hoverBorder: 'rgba(139,92,246,0.4)',
+    features: ['Numeração sequencial', 'Figuras e tabelas IEEE', 'Formatação two-column', 'BibTeX gerado'],
+  },
+];
+---
+
+<section
+  id="normas"
+  class="relative py-24 lg:py-32"
+  style="background:var(--bg-base);"
+>
+  <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+    <!-- Section header -->
+    <div class="text-center mb-16 reveal">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-4 px-3 py-1.5 rounded-full border"
+        style="border-color:rgba(59,130,246,0.3); color:#3B82F6; background:rgba(59,130,246,0.06);">
+        Normas Suportadas
+      </span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4" style="font-family:'Playfair Display',serif; color:var(--text-primary);">
+        Todas as principais<br />normas acadêmicas
+      </h2>
+      <p class="text-lg max-w-lg mx-auto" style="color:var(--text-muted);">
+        Cada norma tem centenas de regras. Conhecemos todas.
+      </p>
+    </div>
+
+    <!-- Norms grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {norms.map((norm, i) => (
+        <div
+          class={`reveal reveal-delay-${i + 1} norm-${norm.id} card-hover group rounded-2xl border p-6 flex flex-col gap-4 cursor-default transition-all`}
+          style={`background:${norm.bg}; border-color:${norm.border};`}
+        >
+          <!-- Norm badge + name -->
+          <div class="flex items-center justify-between">
+            <span class="text-2xl font-black" style={`font-family:'Playfair Display',serif; color:${norm.color};`}>
+              {norm.name}
+            </span>
+            <span class="w-8 h-8 rounded-lg flex items-center justify-center norm-icon"
+              style={`background:rgba(0,0,0,0.2); color:${norm.color};`}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+            </span>
+          </div>
+
+          <!-- Standards -->
+          <div>
+            <p class="text-xs font-medium mb-0.5" style={`color:${norm.color};`}>{norm.standards}</p>
+            <p class="text-sm" style="color:var(--text-muted);">{norm.usage}</p>
+          </div>
+
+          <!-- Divider -->
+          <div class="border-t" style={`border-color:${norm.border};`}></div>
+
+          <!-- Features (hidden by default, shown on hover on desktop) -->
+          <ul class="space-y-1.5">
+            {norm.features.map(f => (
+              <li class="flex items-center gap-2 text-xs" style="color:var(--text-muted);">
+                <span style={`color:${norm.color};`}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                </span>
+                {f}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

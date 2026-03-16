@@ -1,0 +1,177 @@
+---
+---
+
+<section
+  id="hero"
+  class="relative min-h-screen flex items-center pt-16 overflow-hidden dot-grid grain-overlay"
+  style="background: radial-gradient(ellipse 80% 60% at 20% 50%, rgba(245,158,11,0.07) 0%, transparent 60%), var(--bg-base);"
+>
+  <!-- Background radial glow -->
+  <div class="absolute inset-0 pointer-events-none" aria-hidden="true">
+    <div class="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-10"
+      style="background:radial-gradient(circle,var(--accent-primary),transparent 70%);"></div>
+    <div class="absolute bottom-1/4 right-1/4 w-80 h-80 rounded-full blur-3xl opacity-6"
+      style="background:radial-gradient(circle,var(--accent-secondary),transparent 70%);"></div>
+  </div>
+
+  <div class="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-20 lg:py-28 w-full">
+    <div class="grid lg:grid-cols-[3fr_2fr] gap-12 lg:gap-16 items-center">
+
+      <!-- Left: Text content -->
+      <div class="flex flex-col gap-8">
+        <!-- Pre-badge -->
+        <div class="reveal">
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium border"
+            style="border-color:rgba(245,158,11,0.3); background:rgba(245,158,11,0.06); color:var(--accent-primary);">
+            <span class="w-1.5 h-1.5 rounded-full animate-pulse" style="background:var(--accent-primary);"></span>
+            Formatação Acadêmica com IA
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <h1 class="reveal reveal-delay-1 text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+          style="font-family:'Playfair Display',serif; color:var(--text-primary); letter-spacing:-0.03em;">
+          Seu texto acadêmico,<br />
+          <span style="background:linear-gradient(135deg,#F59E0B,#D97706); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
+            formatado em segundos.
+          </span>
+        </h1>
+
+        <!-- Subheadline -->
+        <p class="reveal reveal-delay-2 text-lg md:text-xl leading-relaxed max-w-xl"
+          style="color:var(--text-muted); font-family:'DM Sans',sans-serif;">
+          Cole seu artigo, escolha a norma — ABNT, APA, Vancouver ou IEEE — e receba
+          um PDF e arquivo LaTeX perfeitos. <strong style="color:var(--text-primary);">Sem aprender LaTeX.</strong>
+          Sem perder horas no Word.
+        </p>
+
+        <!-- CTAs -->
+        <div class="reveal reveal-delay-3 flex flex-wrap gap-3">
+          <a
+            href="#precos"
+            class="cta-primary inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-base transition-all hover:scale-105"
+            style="background:var(--accent-primary); color:#0A0A0F;"
+            aria-label="Formatar Agora — É Grátis"
+          >
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+            </svg>
+            Formatar Agora — É Grátis
+          </a>
+          <a
+            href="#como-funciona"
+            class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl font-semibold text-base transition-all hover:bg-white/5 border"
+            style="border-color:var(--border-color); color:var(--text-primary);"
+            aria-label="Ver Demonstração"
+          >
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            Ver Demonstração
+          </a>
+        </div>
+
+        <!-- Norm badges -->
+        <div class="reveal reveal-delay-4 flex flex-wrap gap-2">
+          {['ABNT', 'APA', 'Vancouver', 'IEEE'].map(norm => (
+            <span class="norm-badge">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                <polyline points="20 6 9 17 4 12"/>
+              </svg>
+              {norm}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Right: LaTeX Mockup -->
+      <div class="reveal-right lg:block">
+        <div class="relative float-anim">
+          <!-- Glow behind card -->
+          <div class="absolute -inset-4 rounded-2xl blur-2xl opacity-20"
+            style="background:radial-gradient(circle,var(--accent-primary),transparent 70%);"></div>
+
+          <!-- Main mockup card -->
+          <div class="relative rounded-2xl overflow-hidden border"
+            style="background:var(--bg-surface); border-color:var(--border-color); box-shadow:0 24px 80px rgba(0,0,0,0.5);">
+
+            <!-- Card header bar -->
+            <div class="flex items-center gap-2 px-4 py-3 border-b" style="background:var(--bg-elevated); border-color:var(--border-color);">
+              <div class="w-3 h-3 rounded-full bg-red-500 opacity-70"></div>
+              <div class="w-3 h-3 rounded-full bg-yellow-500 opacity-70"></div>
+              <div class="w-3 h-3 rounded-full bg-green-500 opacity-70"></div>
+              <span class="ml-2 text-xs font-mono" style="color:var(--text-subtle);">artigo_cientifico.tex</span>
+              <span class="ml-auto flex items-center gap-1 text-xs font-medium" style="color:#22C55E;">
+                <span class="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse"></span>
+                Gerado
+              </span>
+            </div>
+
+            <!-- Code content -->
+            <div class="p-5 font-mono text-xs leading-6 overflow-hidden" style="max-height:380px;">
+              <div class="space-y-0.5">
+                <p><span class="latex-comment">% Documento gerado pelo AcadêmicaIA</span></p>
+                <p><span class="latex-comment">% Norma: ABNT NBR 6022:2018</span></p>
+                <p>&nbsp;</p>
+                <p><span class="latex-command">\documentclass</span><span class="latex-brace">[</span><span class="latex-keyword">12pt,a4paper</span><span class="latex-brace">]{</span><span class="latex-content">abntex2</span><span class="latex-brace">}</span></p>
+                <p>&nbsp;</p>
+                <p><span class="latex-comment">% — Pacotes essenciais ———————</span></p>
+                <p><span class="latex-command">\usepackage</span><span class="latex-brace">[</span><span class="latex-keyword">utf8</span><span class="latex-brace">]{</span><span class="latex-content">inputenc</span><span class="latex-brace">}</span></p>
+                <p><span class="latex-command">\usepackage</span><span class="latex-brace">[</span><span class="latex-keyword">T1</span><span class="latex-brace">]{</span><span class="latex-content">fontenc</span><span class="latex-brace">}</span></p>
+                <p><span class="latex-command">\usepackage</span><span class="latex-brace">[</span><span class="latex-keyword">brazil</span><span class="latex-brace">]{</span><span class="latex-content">babel</span><span class="latex-brace">}</span></p>
+                <p><span class="latex-command">\usepackage</span><span class="latex-brace">{</span><span class="latex-content">times, indentfirst</span><span class="latex-brace">}</span></p>
+                <p>&nbsp;</p>
+                <p><span class="latex-comment">% — Metadados —————————————</span></p>
+                <p><span class="latex-command">\title</span><span class="latex-brace">{</span><span class="latex-content">Impacto da IA na Educação Superior</span><span class="latex-brace">}</span></p>
+                <p><span class="latex-command">\author</span><span class="latex-brace">{</span><span class="latex-content">João Silva</span><span class="latex-brace">}</span></p>
+                <p><span class="latex-command">\date</span><span class="latex-brace">{</span><span class="latex-content">\today</span><span class="latex-brace">}</span></p>
+                <p>&nbsp;</p>
+                <p><span class="latex-command">\begin</span><span class="latex-brace">{</span><span class="latex-content">document</span><span class="latex-brace">}</span></p>
+                <p><span class="latex-command">\maketitle</span></p>
+                <p><span class="latex-command">\begin</span><span class="latex-brace">{</span><span class="latex-content">abstract</span><span class="latex-brace">}</span></p>
+                <p class="pl-4"><span class="latex-content">Este artigo analisa o papel das</span></p>
+                <p class="pl-4"><span class="latex-content">tecnologias de inteligência artificial...</span></p>
+                <p><span class="latex-command">\end</span><span class="latex-brace">{</span><span class="latex-content">abstract</span><span class="latex-brace">}</span></p>
+              </div>
+            </div>
+
+            <!-- Bottom actions bar -->
+            <div class="flex items-center justify-between px-4 py-3 border-t" style="background:var(--bg-elevated); border-color:var(--border-color);">
+              <div class="flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                <span class="text-xs font-medium" style="color:#22C55E;">PDF Gerado</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8B5CF6" stroke-width="2">
+                  <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                  <polyline points="14 2 14 8 20 8"/>
+                </svg>
+                <span class="text-xs font-medium" style="color:#8B5CF6;">.tex Exportado</span>
+              </div>
+              <span class="text-xs font-mono" style="color:var(--text-subtle);">~18s</span>
+            </div>
+          </div>
+
+          <!-- Social proof below mockup -->
+          <div class="mt-4 flex items-center justify-center gap-2 text-sm"
+            style="color:var(--text-muted);">
+            <span style="color:var(--accent-primary);">✦</span>
+            já formataram
+            <strong style="color:var(--text-primary);">+12.400 trabalhos acadêmicos</strong>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Scroll indicator -->
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-bounce" style="color:var(--text-subtle);">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
+  </div>
+</section>

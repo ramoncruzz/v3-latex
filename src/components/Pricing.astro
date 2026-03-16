@@ -1,0 +1,155 @@
+---
+const plans = [
+  {
+    name: 'Gratuito',
+    price: 'R$ 0',
+    period: '/mês',
+    description: 'Para experimentar sem compromisso',
+    highlight: false,
+    badge: null,
+    features: [
+      { text: '3 documentos por mês', included: true },
+      { text: 'ABNT e APA', included: true },
+      { text: 'Exportação PDF', included: true },
+      { text: 'Histórico de documentos', included: false },
+      { text: 'Exportação LaTeX (.tex)', included: false },
+      { text: 'Suporte prioritário', included: false },
+    ],
+    cta: 'Começar Grátis',
+    ctaStyle: 'outline',
+  },
+  {
+    name: 'Estudante',
+    price: 'R$ 19',
+    period: '/mês',
+    description: 'O plano favorito de quem produz muito',
+    highlight: true,
+    badge: 'Mais Popular',
+    features: [
+      { text: 'Documentos ilimitados', included: true },
+      { text: 'Todas as normas (ABNT, APA, Vancouver, IEEE)', included: true },
+      { text: 'Exportação PDF', included: true },
+      { text: 'Histórico de documentos', included: true },
+      { text: 'Exportação LaTeX (.tex)', included: true },
+      { text: 'Suporte prioritário por email', included: true },
+    ],
+    cta: 'Assinar Agora',
+    ctaStyle: 'primary',
+  },
+  {
+    name: 'Institucional',
+    price: 'R$ 79',
+    period: '/mês',
+    description: 'Para faculdades, laboratórios e equipes',
+    highlight: false,
+    badge: null,
+    features: [
+      { text: 'Tudo do plano Estudante', included: true },
+      { text: 'Até 10 usuários simultâneos', included: true },
+      { text: 'API de integração (REST)', included: true },
+      { text: 'Templates personalizados', included: true },
+      { text: 'Gerente de conta dedicado', included: true },
+      { text: 'SLA garantido', included: true },
+    ],
+    cta: 'Falar com Vendas',
+    ctaStyle: 'outline',
+  },
+];
+---
+
+<section
+  id="precos"
+  class="relative py-24 lg:py-32"
+  style="background:var(--bg-base);"
+>
+  <div class="max-w-6xl mx-auto px-6 lg:px-8">
+
+    <!-- Section header -->
+    <div class="text-center mb-16 reveal">
+      <span class="inline-block text-xs font-semibold tracking-widest uppercase mb-4 px-3 py-1.5 rounded-full border"
+        style="border-color:rgba(245,158,11,0.3); color:var(--accent-primary); background:rgba(245,158,11,0.06);">
+        Preços
+      </span>
+      <h2 class="text-4xl md:text-5xl font-bold mb-4" style="font-family:'Playfair Display',serif; color:var(--text-primary);">
+        Simples e transparente
+      </h2>
+      <p class="text-lg max-w-md mx-auto" style="color:var(--text-muted);">
+        Sem surpresas. Sem cobranças ocultas. Cancele quando quiser.
+      </p>
+    </div>
+
+    <!-- Pricing cards -->
+    <div class="grid md:grid-cols-3 gap-6 items-start">
+      {plans.map((plan, i) => (
+        <div
+          class={`reveal reveal-delay-${i + 1} rounded-2xl border flex flex-col ${plan.highlight ? 'pricing-highlight md:-mt-4 md:mb-4' : ''}`}
+          style={`background:var(--bg-surface); border-color:var(--border-color); ${plan.highlight ? '' : ''}`}
+        >
+          <!-- Card header -->
+          <div class="p-7 border-b" style="border-color:var(--border-color);">
+            {plan.badge && (
+              <div class="mb-3">
+                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold"
+                  style="background:var(--accent-primary); color:#0A0A0F;">
+                  ⭐ {plan.badge}
+                </span>
+              </div>
+            )}
+            <h3 class="text-xl font-bold mb-1" style="font-family:'Playfair Display',serif; color:var(--text-primary);">
+              {plan.name}
+            </h3>
+            <p class="text-sm mb-5" style="color:var(--text-muted);">{plan.description}</p>
+            <div class="flex items-end gap-1">
+              <span class="text-5xl font-black" style="font-family:'Playfair Display',serif; color:var(--text-primary);">
+                {plan.price}
+              </span>
+              <span class="pb-1.5 text-sm" style="color:var(--text-muted);">{plan.period}</span>
+            </div>
+          </div>
+
+          <!-- Features -->
+          <div class="p-7 flex-1">
+            <ul class="space-y-3">
+              {plan.features.map(f => (
+                <li class="flex items-start gap-3 text-sm" style={`color:${f.included ? 'var(--text-muted)' : 'var(--text-subtle)'};`}>
+                  <span class="mt-0.5 flex-shrink-0">
+                    {f.included ? (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5">
+                        <polyline points="20 6 9 17 4 12"/>
+                      </svg>
+                    ) : (
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--text-subtle)" stroke-width="2">
+                        <line x1="5" y1="12" x2="19" y2="12"/>
+                      </svg>
+                    )}
+                  </span>
+                  {f.text}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- CTA -->
+          <div class="p-7 pt-0">
+            <a
+              href="#hero"
+              class={`w-full flex items-center justify-center py-3 px-4 rounded-xl font-semibold text-sm transition-all ${plan.highlight ? 'cta-primary hover:scale-105' : 'hover:bg-white/5 border'}`}
+              style={plan.highlight
+                ? 'background:var(--accent-primary); color:#0A0A0F;'
+                : 'border-color:var(--border-color); color:var(--text-primary);'}
+              aria-label={plan.cta}
+            >
+              {plan.cta}
+            </a>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Trust footnote -->
+    <p class="text-center text-sm mt-10 reveal" style="color:var(--text-subtle);">
+      Todos os planos incluem SSL, conformidade com LGPD e pagamento seguro via Stripe.
+    </p>
+
+  </div>
+</section>

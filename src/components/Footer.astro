@@ -1,0 +1,123 @@
+---
+const links = {
+  produto: [
+    { label: 'Como Funciona', href: '#como-funciona' },
+    { label: 'Normas', href: '#normas' },
+    { label: 'Preços', href: '#precos' },
+    { label: 'Depoimentos', href: '#depoimentos' },
+  ],
+  recursos: [
+    { label: 'Blog', href: '#' },
+    { label: 'Documentação', href: '#' },
+    { label: 'API', href: '#' },
+    { label: 'Suporte', href: '#' },
+  ],
+  legal: [
+    { label: 'Privacidade', href: '#' },
+    { label: 'Termos de Uso', href: '#' },
+    { label: 'Cookies', href: '#' },
+  ],
+};
+---
+
+<footer style="background:var(--bg-surface); border-top:1px solid var(--border-color);">
+  <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-10 lg:gap-16">
+
+      <!-- Brand column -->
+      <div class="col-span-2 md:col-span-1">
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-2.5 mb-4 group w-fit">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center"
+            style="background:linear-gradient(135deg,#F59E0B,#D97706);">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <span class="font-bold text-lg" style="color:var(--text-primary);">
+            Acadêmica<span style="color:var(--accent-primary);">IA</span>
+          </span>
+        </a>
+        <p class="text-sm leading-relaxed max-w-[200px]" style="color:var(--text-muted);">
+          Formatação acadêmica inteligente para estudantes e pesquisadores brasileiros.
+        </p>
+
+        <!-- Social links -->
+        <div class="flex gap-3 mt-5">
+          {[
+            { label: 'Twitter', d: 'M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z' },
+            { label: 'LinkedIn', d: 'M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z M4 6a2 2 0 1 1 0-4 2 2 0 0 1 0 4z' },
+            { label: 'GitHub', d: 'M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22' },
+          ].map(s => (
+            <a href="#" aria-label={s.label}
+              class="w-8 h-8 rounded-lg flex items-center justify-center transition-all hover:scale-110 hover:bg-white/5 border"
+              style="border-color:var(--border-color); color:var(--text-muted);">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d={s.d}/>
+              </svg>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- Produto -->
+      <div>
+        <h4 class="text-sm font-semibold mb-4" style="color:var(--text-primary);">Produto</h4>
+        <ul class="space-y-2.5">
+          {links.produto.map(l => (
+            <li>
+              <a href={l.href} class="text-sm transition-colors hover:text-amber-400" style="color:var(--text-muted);">
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Recursos -->
+      <div>
+        <h4 class="text-sm font-semibold mb-4" style="color:var(--text-primary);">Recursos</h4>
+        <ul class="space-y-2.5">
+          {links.recursos.map(l => (
+            <li>
+              <a href={l.href} class="text-sm transition-colors hover:text-amber-400" style="color:var(--text-muted);">
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Legal -->
+      <div>
+        <h4 class="text-sm font-semibold mb-4" style="color:var(--text-primary);">Legal</h4>
+        <ul class="space-y-2.5">
+          {links.legal.map(l => (
+            <li>
+              <a href={l.href} class="text-sm transition-colors hover:text-amber-400" style="color:var(--text-muted);">
+                {l.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="mt-16 pt-8 border-t flex flex-col md:flex-row items-center justify-between gap-4"
+      style="border-color:var(--border-color);">
+      <p class="text-sm" style="color:var(--text-subtle);">
+        Feito com ❤ para estudantes brasileiros
+      </p>
+      <p class="text-sm" style="color:var(--text-subtle);">
+        © 2025 AcadêmicaIA. Todos os direitos reservados.
+      </p>
+    </div>
+
+  </div>
+</footer>
