@@ -1,0 +1,614 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+
+const prompt = `# Prompt — Landing Page AcadêmicaIA
+> Stack: AstroJS + shadcn/ui (via MCP) + Tailwind CSS
+
+---
+
+## 🎨 SKILL DE DESIGN — LEIA ANTES DE CODAR
+
+Antes de escrever qualquer linha de código, aplique a **Frontend Design Skill** completa:
+
+### 1. Design Thinking Obrigatório
+
+Responda internamente a estas perguntas antes de implementar:
+
+- **Purpose**: Esta interface vende uma solução SaaS para estudantes universitários e pesquisadores que sofrem com formatação acadêmica. A emoção central é **alívio** — o produto tira um peso enorme das costas do usuário.
+- **Tone**: Editorial universitária premium. Sério, inteligente, moderno. Combine a sobriedade acadêmica com a energia de um produto tech ambicioso.
+- **Differentiation**: O elemento **inesquecível** deve ser o contraste visual entre "o caos da formatação manual" e "a elegância do documento gerado".
+
+### 2. Sistema de Cores
+
+\`\`\`css
+:root {
+  --bg-base: #0A0A0F;
+  --bg-surface: #12121A;
+  --bg-elevated: #1A1A28;
+  --border: #1E1E2E;
+  --accent-primary: #F59E0B;   /* âmbar — CTAs */
+  --accent-secondary: #8B5CF6; /* violeta — AI */
+  --accent-glow: rgba(245,158,11,0.15);
+  --text-primary: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-subtle: #475569;
+}
+\`\`\`
+
+### 3. Tipografia
+
+- Headlines: **Playfair Display** (serif elegante)
+- Body/UI: **DM Sans** (humanista, legível)
+
+---
+
+## 🛠 STACK TÉCNICA
+
+| Camada | Tecnologia |
+|---|---|
+| Framework | AstroJS (SSG/SSR) |
+| UI Components | shadcn/ui via **MCP** |
+| Estilização | Tailwind CSS |
+| Ícones | lucide-react |
+| Fontes | Google Fonts (Playfair Display + DM Sans) |
+| Animações | CSS Animations + Intersection Observer |
+
+**Componentes shadcn a usar** (via MCP):
+\`Button · Card · CardHeader · CardContent · Badge · Accordion · Avatar · Separator · Tabs\`
+
+---
+
+## 📁 ESTRUTURA DE ARQUIVOS
+
+\`\`\`
+src/
+├── pages/index.astro
+├── components/
+│   ├── Navbar.astro
+│   ├── Hero.astro
+│   ├── ProblemSection.astro
+│   ├── HowItWorks.astro
+│   ├── PersonasSection.astro
+│   ├── NormsSection.astro
+│   ├── Testimonials.astro
+│   ├── Pricing.astro
+│   ├── FAQ.astro
+│   ├── FinalCTA.astro
+│   └── Footer.astro
+├── layouts/Layout.astro
+└── styles/global.css
+\`\`\`
+
+---
+
+## 📄 SEÇÕES DA LANDING PAGE
+
+### SEÇÃO 1 — Navbar
+- Logo: \`AcadêmicaIA\` com ícone \`FileText\`
+- Links: Produto · Como Funciona · Preços · Depoimentos
+- CTA: \`Começar Grátis →\`
+- Sticky + backdrop-blur após 80px de scroll
+- Mobile: menu hamburguer com drawer
+
+### SEÇÃO 2 — Hero
+**Headline** (Playfair Display, 64px):
+> "Seu texto acadêmico, formatado em segundos."
+
+**Subheadline**:
+> "Cole seu artigo, escolha a norma — ABNT, APA, Vancouver ou IEEE — e receba um PDF e arquivo LaTeX perfeitos. Sem aprender LaTeX."
+
+- CTAs: "Formatar Agora — É Grátis" (âmbar+glow) + "Ver Demonstração"
+- Badges de normas: ABNT · APA · Vancouver · IEEE
+- Mockup animado: texto bruto → documento LaTeX formatado
+- Social proof: "+12.400 trabalhos acadêmicos formatados"
+
+### SEÇÃO 3 — Problema
+Grid 2×2 de cards com ícone + título + descrição:
+1. Clock — Horas perdidas com formatação
+2. RefreshCw — Retrabalho constante
+3. Ruler — Cada norma tem suas regras
+4. Lock — LaTeX é poderoso, mas inacessível
+
+### SEÇÃO 4 — Como Funciona
+Timeline horizontal com 3 passos animados:
+1. Upload — Cole seu texto
+2. Settings2 — Escolha a norma
+3. Download — Baixe pronto
+
+### SEÇÃO 5 — Para Quem É (Tabs)
+- **Aba Universitários** — Persona João, 21 anos, TCC em Administração
+- **Aba Pesquisadores** — Persona Ana, 26 anos, Mestranda em Biologia
+
+### SEÇÃO 6 — Normas Suportadas
+4 cards: ABNT (âmbar) · APA (verde) · Vancouver (azul) · IEEE (violeta)
+
+### SEÇÃO 7 — Depoimentos
+3 cards + métricas animadas:
+- 12.400+ trabalhos · 98% aprovação · 4 normas · <60s por documento
+
+### SEÇÃO 8 — Preços
+3 planos: Gratuito (R$0) · Estudante (R$19) · Institucional (R$79)
+Card central destacado com glow âmbar.
+
+### SEÇÃO 9 — FAQ
+Accordion com 5 perguntas frequentes.
+
+### SEÇÃO 10 — CTA Final
+Gradiente radial âmbar/violeta + headline em destaque + botão pulsante.
+
+### SEÇÃO 11 — Footer
+4 colunas: Brand · Produto · Recursos · Legal
+
+---
+
+## ⚡ ANIMAÇÕES
+
+\`\`\`css
+.reveal { opacity:0; transform:translateY(24px); transition:0.6s ease; }
+.reveal.visible { opacity:1; transform:translateY(0); }
+@keyframes ctaPulse {
+  0%,100% { box-shadow: 0 0 0 0 var(--accent-glow); }
+  50% { box-shadow: 0 0 24px 8px var(--accent-glow); }
+}
+.cta-primary { animation: ctaPulse 3s ease-in-out infinite; }
+\`\`\`
+
+- Scroll reveal em todas as seções (Intersection Observer)
+- Stagger de 100ms entre elementos do Hero
+- Navbar blur ao rolar 80px
+- Count-up nos números de métricas
+
+---
+
+## 🐳 DEVOPS
+
+### Dockerfile (multi-stage)
+\`\`\`dockerfile
+FROM node:lts AS base
+WORKDIR /app
+COPY package.json package-lock.json ./
+
+FROM base AS prod-deps
+RUN npm install --omit=dev
+
+FROM base AS build-deps
+RUN npm install
+
+FROM build-deps AS build
+COPY . .
+RUN npm run build
+
+FROM node:lts-alpine AS runtime
+WORKDIR /app
+COPY --from=prod-deps /app/node_modules ./node_modules
+COPY --from=build /app/dist ./dist
+ENV HOST=0.0.0.0 PORT=4321
+EXPOSE 4321
+CMD ["node", "./dist/server/entry.mjs"]
+\`\`\`
+
+### docker-compose.yml
+\`\`\`yaml
+services:
+  astro:
+    build: { context: ., dockerfile: Dockerfile }
+    ports: ["4321:4321"]
+    environment: [HOST=0.0.0.0, PORT=4321]
+    restart: unless-stopped
+\`\`\`
+
+### GitHub Actions → ghcr.io
+Pipeline CI/CD automático: build + push a cada push na \`main\`.`;
+---
+
+<Layout
+  title="Estudo de Caso — AcadêmicaIA | Formatação Acadêmica com IA"
+  description="Análise completa do problema, solução proposta, personas e prompt gerado para a landing page do AcadêmicaIA."
+>
+  <Navbar />
+
+  <main class="pt-20">
+
+    <!-- Page Hero -->
+    <section class="relative py-20 lg:py-28 overflow-hidden"
+      style="background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(139,92,246,0.08) 0%, transparent 60%), var(--bg-base);">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center">
+        <span class="reveal inline-block text-xs font-semibold tracking-widest uppercase mb-5 px-3 py-1.5 rounded-full border"
+          style="border-color:rgba(139,92,246,0.3); color:var(--accent-secondary); background:rgba(139,92,246,0.06);">
+          Estudo de Caso · Marketing
+        </span>
+        <h1 class="reveal reveal-delay-1 text-5xl md:text-6xl font-bold mb-6"
+          style="font-family:'Playfair Display',serif; color:var(--text-primary); letter-spacing:-0.03em;">
+          AcadêmicaIA
+        </h1>
+        <p class="reveal reveal-delay-2 text-xl max-w-2xl mx-auto leading-relaxed" style="color:var(--text-muted);">
+          Análise completa de problema, proposta de solução, personas e prompt para construção da landing page.
+        </p>
+        <!-- Jump links -->
+        <div class="reveal reveal-delay-3 flex flex-wrap gap-2 justify-center mt-8">
+          {['Problema', 'Solução', 'Personas', 'Prompt'].map(s => (
+            <a href={`#${s.toLowerCase()}`}
+              class="px-4 py-2 rounded-full text-sm font-medium border transition-all hover:border-amber-500/50 hover:text-amber-400"
+              style="border-color:var(--border-color); color:var(--text-muted);">
+              {s}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROBLEMA ───────────────────────────────────────────── -->
+    <section id="problema" class="py-20 lg:py-24" style="background:var(--bg-surface);">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+        <div class="reveal mb-12">
+          <span class="text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full border"
+            style="border-color:rgba(239,68,68,0.3); color:#EF4444; background:rgba(239,68,68,0.06);">
+            Problema e Oportunidade
+          </span>
+        </div>
+
+        <!-- P1: Qual é o problema? -->
+        <div class="reveal mb-10">
+          <h2 class="text-3xl font-bold mb-5 flex items-center gap-3"
+            style="font-family:'Playfair Display',serif; color:var(--text-primary);">
+            <span class="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black"
+              style="background:rgba(245,158,11,0.1); color:var(--accent-primary);">1</span>
+            Qual é o problema?
+          </h2>
+          <div class="rounded-2xl border p-7 space-y-4" style="background:var(--bg-elevated); border-color:var(--border-color);">
+            <p style="color:var(--text-muted); line-height:1.75;">
+              Estudantes universitários precisam escrever artigos acadêmicos, TCCs e trabalhos científicos, mas a formatação exigida por normas acadêmicas como <strong style="color:var(--text-primary);">ABNT, Vancouver, APA e IEEE</strong> é complexa e difícil de aplicar manualmente.
+            </p>
+            <p style="color:var(--text-muted); line-height:1.75;">
+              Ferramentas tradicionais como Word ou Google Docs não são projetadas para lidar com esse tipo de padronização. Como resultado, os estudantes gastam horas ajustando:
+            </p>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-2 pt-2">
+              {['Margens e espaçamentos', 'Numeração de seções', 'Formatação de títulos', 'Referências e citações', 'Estrutura de capítulos', 'Tabelas e figuras'].map(item => (
+                <div class="flex items-center gap-2 text-sm rounded-lg px-3 py-2 border"
+                  style="background:rgba(239,68,68,0.04); border-color:rgba(239,68,68,0.15); color:var(--text-muted);">
+                  <span style="color:#EF4444;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                  </span>
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        <!-- P2: Quem sofre? -->
+        <div class="reveal mb-10">
+          <h2 class="text-3xl font-bold mb-5 flex items-center gap-3"
+            style="font-family:'Playfair Display',serif; color:var(--text-primary);">
+            <span class="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black"
+              style="background:rgba(245,158,11,0.1); color:var(--accent-primary);">2</span>
+            Quem sofre com esse problema?
+          </h2>
+          <div class="rounded-2xl border p-7" style="background:var(--bg-elevated); border-color:var(--border-color);">
+            <p class="mb-4" style="color:var(--text-muted); line-height:1.75;">
+              O problema afeta principalmente <strong style="color:var(--text-primary);">estudantes universitários e pesquisadores iniciantes</strong>, especialmente aqueles que:
+            </p>
+            <ul class="space-y-2">
+              {['Estão escrevendo TCC', 'Estão produzindo artigos científicos', 'Estão iniciando mestrado ou doutorado', 'Precisam submeter papers para conferências ou revistas'].map(p => (
+                <li class="flex items-center gap-3 text-sm" style="color:var(--text-muted);">
+                  <span class="w-1.5 h-1.5 rounded-full flex-shrink-0" style="background:var(--accent-primary);"></span>
+                  {p}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- P3: Impactos -->
+        <div class="reveal mb-10">
+          <h2 class="text-3xl font-bold mb-5 flex items-center gap-3"
+            style="font-family:'Playfair Display',serif; color:var(--text-primary);">
+            <span class="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black"
+              style="background:rgba(245,158,11,0.1); color:var(--accent-primary);">3</span>
+            Como esse problema impacta?
+          </h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            {[
+              { title: 'Perda de tempo', desc: 'Estudantes podem gastar horas ou até dias apenas ajustando formatação.', color: '#F59E0B' },
+              { title: 'Frustração', desc: 'A formatação é vista como uma barreira técnica desnecessária para quem deveria focar na pesquisa.', color: '#EF4444' },
+              { title: 'Retrabalho constante', desc: 'Professores pedem correções repetidas, gerando várias revisões manuais.', color: '#8B5CF6' },
+              { title: 'Baixa qualidade final', desc: 'Mesmo com muito esforço, muitos trabalhos ainda apresentam erros de padronização.', color: '#3B82F6' },
+            ].map(impact => (
+              <div class="rounded-xl border p-5" style={`background:var(--bg-elevated); border-color:var(--border-color);`}>
+                <div class="flex items-center gap-2 mb-2">
+                  <span class="w-2 h-2 rounded-full" style={`background:${impact.color};`}></span>
+                  <h3 class="font-semibold text-sm" style={`color:${impact.color}; font-family:'Playfair Display',serif;`}>
+                    {impact.title}
+                  </h3>
+                </div>
+                <p class="text-sm leading-relaxed" style="color:var(--text-muted);">{impact.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- P4: Por que precisa de solução? -->
+        <div class="reveal">
+          <h2 class="text-3xl font-bold mb-5 flex items-center gap-3"
+            style="font-family:'Playfair Display',serif; color:var(--text-primary);">
+            <span class="flex-shrink-0 w-8 h-8 rounded-lg flex items-center justify-center text-sm font-black"
+              style="background:rgba(245,158,11,0.1); color:var(--accent-primary);">4</span>
+            Por que precisa de solução?
+          </h2>
+          <div class="rounded-2xl border p-7" style="background:var(--bg-elevated); border-color:rgba(245,158,11,0.2);">
+            <p class="mb-4" style="color:var(--text-muted); line-height:1.75;">
+              Existe uma tecnologia extremamente eficiente para resolver esse problema: <strong style="color:var(--text-primary);">LaTeX</strong>, amplamente utilizada na comunidade científica. O problema é que o LaTeX possui uma curva de aprendizado muito alta, tornando-se inacessível para a maioria dos estudantes.
+            </p>
+            <div class="rounded-xl p-4 border" style="background:rgba(245,158,11,0.05); border-color:rgba(245,158,11,0.2);">
+              <p class="text-sm font-semibold mb-2" style="color:var(--accent-primary);">A oportunidade clara:</p>
+              <p class="text-sm leading-relaxed" style="color:var(--text-muted);">
+                Criar uma plataforma onde o estudante apenas escreve seu texto normalmente, enquanto o sistema converte automaticamente para LaTeX estruturado, aplicando templates ABNT, Vancouver, APA e IEEE.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── SOLUÇÃO ─────────────────────────────────────────────── -->
+    <section id="solução" class="py-20 lg:py-24" style="background:var(--bg-base);">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+        <div class="reveal mb-12">
+          <span class="text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full border"
+            style="border-color:rgba(34,197,94,0.3); color:#22C55E; background:rgba(34,197,94,0.06);">
+            Proposta da Solução
+          </span>
+        </div>
+
+        <div class="reveal">
+          <h2 class="text-3xl md:text-4xl font-bold mb-8" style="font-family:'Playfair Display',serif; color:var(--text-primary);">
+            Uma plataforma web que formata automaticamente
+          </h2>
+
+          <!-- 3 steps -->
+          <div class="grid md:grid-cols-3 gap-5 mb-8">
+            {[
+              { n: '1', label: 'Colar ou enviar texto/artigo', icon: '📄' },
+              { n: '2', label: 'Escolher o padrão acadêmico', icon: '⚙️' },
+              { n: '3', label: 'Gerar documento formatado', icon: '⚡' },
+            ].map(s => (
+              <div class="rounded-xl border p-5 flex gap-4 items-start" style="background:var(--bg-surface); border-color:var(--border-color);">
+                <span class="text-2xl">{s.icon}</span>
+                <div>
+                  <span class="text-xs font-bold" style="color:var(--accent-primary);">Passo {s.n}</span>
+                  <p class="text-sm font-medium mt-1" style="color:var(--text-primary);">{s.label}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <!-- Output formats -->
+          <div class="rounded-2xl border p-7" style="background:var(--bg-surface); border-color:var(--border-color);">
+            <p class="text-sm font-semibold mb-4" style="color:var(--text-primary);">O resultado final pode ser exportado como:</p>
+            <div class="flex flex-wrap gap-3">
+              {[
+                { label: 'PDF formatado', color: '#EF4444' },
+                { label: 'Arquivo LaTeX (.tex)', color: '#8B5CF6' },
+                { label: 'Documento editável', color: '#22C55E' },
+              ].map(f => (
+                <span class="inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium border"
+                  style={`border-color:${f.color}30; background:${f.color}0D; color:${f.color};`}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  {f.label}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PERSONAS ────────────────────────────────────────────── -->
+    <section id="personas" class="py-20 lg:py-24" style="background:var(--bg-surface);">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+        <div class="reveal mb-12">
+          <span class="text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full border"
+            style="border-color:rgba(245,158,11,0.3); color:var(--accent-primary); background:rgba(245,158,11,0.06);">
+            Personas · Marketing
+          </span>
+          <h2 class="text-3xl md:text-4xl font-bold mt-5" style="font-family:'Playfair Display',serif; color:var(--text-primary);">
+            Para quem é esse produto?
+          </h2>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-6">
+
+          <!-- Persona 1: João -->
+          <div class="reveal rounded-2xl border overflow-hidden" style="background:var(--bg-elevated); border-color:var(--border-color);">
+            <!-- Header -->
+            <div class="p-6 border-b" style="border-color:var(--border-color); background:rgba(245,158,11,0.04);">
+              <div class="flex items-center gap-4 mb-3">
+                <div class="w-14 h-14 rounded-xl flex items-center justify-center text-2xl font-black"
+                  style="background:rgba(245,158,11,0.15); color:var(--accent-primary); font-family:'Playfair Display',serif;">
+                  J
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg" style="font-family:'Playfair Display',serif; color:var(--text-primary);">João</h3>
+                  <p class="text-sm" style="color:var(--text-muted);">O Universitário Perdido</p>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                {['21 anos', 'Administração', 'Escrevendo TCC'].map(tag => (
+                  <span class="text-xs px-2.5 py-1 rounded-full border"
+                    style="border-color:rgba(245,158,11,0.2); color:var(--accent-primary); background:rgba(245,158,11,0.06);">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <!-- Body -->
+            <div class="p-6 space-y-5">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:#EF4444;">Dores</p>
+                <ul class="space-y-2">
+                  {['Não sabe formatar trabalho em ABNT', 'Passa horas ajustando Word', 'Recebe muitas correções do orientador', 'Está atrasado com o prazo'].map(d => (
+                    <li class="flex items-start gap-2 text-sm" style="color:var(--text-muted);">
+                      <span class="mt-0.5 flex-shrink-0" style="color:#EF4444;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="rounded-xl p-4 border" style="background:rgba(34,197,94,0.04); border-color:rgba(34,197,94,0.15);">
+                <p class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:#22C55E;">Como o produto ajuda</p>
+                <p class="text-sm leading-relaxed" style="color:var(--text-muted);">
+                  João apenas envia seu texto e a plataforma gera automaticamente o trabalho formatado em ABNT, pronto para entrega.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Persona 2: Ana -->
+          <div class="reveal reveal-delay-1 rounded-2xl border overflow-hidden" style="background:var(--bg-elevated); border-color:var(--border-color);">
+            <!-- Header -->
+            <div class="p-6 border-b" style="border-color:var(--border-color); background:rgba(139,92,246,0.04);">
+              <div class="flex items-center gap-4 mb-3">
+                <div class="w-14 h-14 rounded-xl flex items-center justify-center text-2xl font-black"
+                  style="background:rgba(139,92,246,0.15); color:var(--accent-secondary); font-family:'Playfair Display',serif;">
+                  A
+                </div>
+                <div>
+                  <h3 class="font-bold text-lg" style="font-family:'Playfair Display',serif; color:var(--text-primary);">Ana</h3>
+                  <p class="text-sm" style="color:var(--text-muted);">A Pesquisadora Iniciante</p>
+                </div>
+              </div>
+              <div class="flex flex-wrap gap-2">
+                {['26 anos', 'Mestranda em Biologia', 'Submissão de papers'].map(tag => (
+                  <span class="text-xs px-2.5 py-1 rounded-full border"
+                    style="border-color:rgba(139,92,246,0.2); color:var(--accent-secondary); background:rgba(139,92,246,0.06);">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <!-- Body -->
+            <div class="p-6 space-y-5">
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-wider mb-3" style="color:#EF4444;">Dores</p>
+                <ul class="space-y-2">
+                  {['Precisa submeter artigos científicos', 'Cada revista exige um formato diferente', 'Já ouviu falar de LaTeX, mas acha complicado'].map(d => (
+                    <li class="flex items-start gap-2 text-sm" style="color:var(--text-muted);">
+                      <span class="mt-0.5 flex-shrink-0" style="color:#EF4444;"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span>
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div class="rounded-xl p-4 border" style="background:rgba(34,197,94,0.04); border-color:rgba(34,197,94,0.15);">
+                <p class="text-xs font-semibold uppercase tracking-wider mb-2" style="color:#22C55E;">Como o produto ajuda</p>
+                <p class="text-sm leading-relaxed" style="color:var(--text-muted);">
+                  Ana envia seu artigo e escolhe o template da revista ou padrão acadêmico, recebendo um paper estruturado em LaTeX pronto para submissão.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ── PROMPT ─────────────────────────────────────────────── -->
+    <section id="prompt" class="py-20 lg:py-24" style="background:var(--bg-base);">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+        <div class="reveal mb-12">
+          <span class="text-xs font-semibold tracking-widest uppercase px-3 py-1.5 rounded-full border"
+            style="border-color:rgba(139,92,246,0.3); color:var(--accent-secondary); background:rgba(139,92,246,0.06);">
+            Prompt Gerado
+          </span>
+          <h2 class="text-3xl md:text-4xl font-bold mt-5 mb-3" style="font-family:'Playfair Display',serif; color:var(--text-primary);">
+            Prompt para a Landing Page
+          </h2>
+          <p style="color:var(--text-muted);">
+            Baseado neste estudo de caso, este prompt foi gerado para construir a landing page completa com AstroJS + shadcn/ui.
+          </p>
+        </div>
+
+        <!-- Prompt card -->
+        <div class="reveal rounded-2xl border overflow-hidden" style="background:var(--bg-surface); border-color:var(--border-color);">
+
+          <!-- Toolbar -->
+          <div class="flex items-center justify-between px-5 py-3.5 border-b"
+            style="background:var(--bg-elevated); border-color:var(--border-color);">
+            <div class="flex items-center gap-3">
+              <div class="flex gap-1.5">
+                <div class="w-3 h-3 rounded-full bg-red-500 opacity-70"></div>
+                <div class="w-3 h-3 rounded-full bg-yellow-500 opacity-70"></div>
+                <div class="w-3 h-3 rounded-full bg-green-500 opacity-70"></div>
+              </div>
+              <span class="text-xs font-mono" style="color:var(--text-subtle);">landing-page-prompt.md</span>
+            </div>
+            <button
+              id="copy-btn"
+              class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-medium transition-all hover:opacity-80 border"
+              style="background:rgba(245,158,11,0.08); border-color:rgba(245,158,11,0.2); color:var(--accent-primary);"
+              onclick="copyPrompt()"
+            >
+              <svg id="copy-icon" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+              </svg>
+              <span id="copy-label">Copiar prompt</span>
+            </button>
+          </div>
+
+          <!-- Content -->
+          <div class="p-6 overflow-auto max-h-[600px]">
+            <pre id="prompt-content" class="text-xs leading-6 font-mono whitespace-pre-wrap" style="color:var(--text-muted);">{prompt}</pre>
+          </div>
+        </div>
+
+        <!-- View live page -->
+        <div class="reveal mt-8 flex flex-wrap gap-4 items-center justify-between p-6 rounded-2xl border"
+          style="background:var(--bg-surface); border-color:rgba(245,158,11,0.2);">
+          <div>
+            <p class="font-semibold" style="font-family:'Playfair Display',serif; color:var(--text-primary);">
+              Ver landing page ao vivo
+            </p>
+            <p class="text-sm mt-1" style="color:var(--text-muted);">
+              A landing page gerada por este prompt está disponível na raiz deste projeto.
+            </p>
+          </div>
+          <a href="/"
+            class="inline-flex items-center gap-2 px-5 py-3 rounded-xl font-semibold text-sm transition-all hover:scale-105"
+            style="background:var(--accent-primary); color:#0A0A0F;">
+            Ver Landing Page →
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <Footer />
+</Layout>
+
+<script>
+  function copyPrompt() {
+    const content = document.getElementById('prompt-content')?.textContent || '';
+    navigator.clipboard.writeText(content).then(() => {
+      const label = document.getElementById('copy-label');
+      const icon = document.getElementById('copy-icon');
+      if (label) label.textContent = 'Copiado!';
+      if (icon) icon.innerHTML = '<polyline points="20 6 9 17 4 12"/>';
+      setTimeout(() => {
+        if (label) label.textContent = 'Copiar prompt';
+        if (icon) icon.innerHTML = '<rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>';
+      }, 2000);
+    });
+  }
+  (window as any).copyPrompt = copyPrompt;
+</script>
